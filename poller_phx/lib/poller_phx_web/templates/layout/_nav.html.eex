@@ -1,0 +1,19 @@
+<nav>
+  <div>
+    <a href="/">POLLER</a>
+  </div>
+  <div>
+    <div>
+      <%= if @current_user && @current_user.admin do %>
+        <%= link "Districts", to: Routes.district_path(@conn, :index)%>
+      <% end %>
+    </div>
+    <div>
+      <%= if @current_user do %>
+        <%= link "Log out", to: Routes.auth_path(@conn, :delete), method: :delete %>
+      <% else %>
+        <%= link "Log in", to: Routes.auth_path(@conn, :new) %>
+      <% end %>
+    </div>
+  </div>
+</nav>
